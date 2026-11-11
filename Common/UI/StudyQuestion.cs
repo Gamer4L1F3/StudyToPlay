@@ -1,32 +1,27 @@
-using Terraria.ModLoader.IO;
 using System.Collections.Generic;
 
 namespace StudyToPlay.Common.UI;
 
+// Public properties keep this class straightforward to save and reload as JSON.
 public class StudyQuestion
 {
-    public string Prompt;
-    public string[] Answers;
-    public int CorrectIndex;
-    public string Category;
+    public string Prompt { get; set; } = "";
+    public List<string> Answers { get; set; } = new();
+    public int CorrectIndex { get; set; }
+    public string Category { get; set; } = "General";
 
-    public StudyQuestion(string prompt, string[] answers, int correctIndex, string category = "General")
+    public StudyQuestion() { }
+
+    public StudyQuestion(string prompt, IEnumerable<string> answers, int correctIndex, string category = "General")
     {
         Prompt = prompt;
-        Answers = answers;
+        Answers = new List<string>(answers);
         CorrectIndex = correctIndex;
         Category = category;
     }
 
-    public TagCompound ToTag() => new TagCompound {
-        ["Prompt"] = Prompt, ["Answers"] = Answers, ["CorrectIndex"] = CorrectIndex, ["Category"] = Category
-    };
-
-    public static StudyQuestion FromTag(TagCompound tag) =>
-        new StudyQuestion(tag.GetString("Prompt"), tag.GetString("Answers").Split('|'),
-            tag.GetInt("CorrectIndex"), tag.GetString("Category"));
-
-    public static List<StudyQuestion> CreateDefaults() => new() {
+    public static List<StudyQuestion> CreateDefaults() => new()
+    {
         new("What is 7 × 8?", new[] {"54", "56", "64", "48"}, 1, "Math"),
         new("Which planet is known as the Red Planet?", new[] {"Venus", "Jupiter", "Mars", "Mercury"}, 2, "Science"),
         new("What gas do plants absorb?", new[] {"Oxygen", "Carbon dioxide", "Nitrogen", "Hydrogen"}, 1, "Science"),

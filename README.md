@@ -2,31 +2,35 @@
 
 A tModLoader 1.4.4 mod that turns studying into Terraria progression.
 
-## Current foundation (0.1.0)
+## Features in the current foundation
 
-- **Study menu:** press **P** or type `/study` to open the in-game menu.
-- **Question bank:** answer multiple-choice questions; correct answers grant Energy.
-- **Streaks:** consecutive correct answers increase rewards.
-- **In-game question editor:** add custom questions with four answers and choose the correct answer. Questions are saved with the world.
-- **Progression:** persistent Energy, Insight, streaks, and answer counts.
-- **Upgrades:** buy Double Energy (150 Energy) and Extra Insight (200 Energy).
-- **Boss Permit:** buy a permit for 100 Energy, then use `/studyboss` to consume it and authorize a boss attempt. This first version tracks authorization; it does not yet intercept every vanilla boss-summoning path.
+- **In-game Study Menu:** press **P** or type `/study`.
+- **Global question bank:** one bank shared across all worlds on this Terraria installation.
+- **In-game question manager:** browse questions, create new ones, edit existing ones, and delete unwanted ones.
+- **Four-choice questions:** choose the correct answer while creating or editing.
+- **Energy and streaks:** correct answers earn Energy; consecutive correct answers improve rewards.
+- **Insight:** every five correct answers earns Insight.
+- **Upgrades:** Double Energy (150 Energy) and Extra Insight (200 Energy).
+- **Boss Permit:** purchase a permit for 100 Energy and consume it with `/studyboss`.
+
+## Global question bank storage
+
+The mod manages its own file at the tModLoader config location named `StudyToPlay_Questions.json`. You do not need to edit this file: all question creation and management is done in-game. Because the file is global client configuration, it is shared between worlds on the same installation.
 
 ## Install / build
 
 1. Install tModLoader 1.4.4.
 2. Put this folder in `Documents/My Games/Terraria/tModLoader/ModSources/StudyToPlay`.
 3. Open tModLoader, choose Workshop → Develop Mods → Build + Reload.
-4. In a world, press **P** or type `/study`.
+4. Enter a world and press **P** or type `/study`.
 
-## Roadmap
+## Known limitations
 
-- More question formats (true/false, typed answer, multi-select, timed rounds).
-- Better editor tools: edit/delete/search questions, categories, import/export JSON.
-- Boss-specific costs and safe integration with vanilla and modded boss summons.
-- More upgrades, achievements, daily goals, study modes, configurable rewards, and multiplayer synchronization.
-- Automated build/test workflow and compatibility testing.
+This is still an early development build and has not yet been compiled against a local tModLoader installation. Boss Permits are tracked as authorizations but do not yet intercept every vanilla or modded boss-summoning route. Multiplayer synchronization and server-authoritative question rewards are not implemented yet.
 
-## Notes
+## Planned next
 
-This is an initial playable foundation, not a fully tested release. Please report compiler errors with the full tModLoader version and log. Balance values and features will be expanded in follow-up commits.
+- True/false, typed-answer, multi-select, and timed question formats.
+- Boss-specific costs and progression-aware summon integration.
+- More upgrade branches, achievements, daily goals, and study modes.
+- Multiplayer support, accessibility options, and UI polish.
