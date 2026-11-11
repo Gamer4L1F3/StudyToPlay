@@ -1,0 +1,4 @@
+displayName = Study to Play
+author = Gamer4L1F3
+version = 0.1.0
+description = Turn study sessions into Terraria progression. Earn Energy by answering questions, customize your question bank, and unlock upgrades.
