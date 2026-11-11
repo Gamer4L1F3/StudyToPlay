@@ -1,0 +1,6 @@
+Study to Play turns studying into Terraria progression.
+
+Open the Study menu with the Study Menu key (default: P) or use /study.
+Answer questions to earn Energy, buy upgrades, and purchase a one-use Boss Permit before summoning a boss.
+
+The question bank is editable in-game and stored per world.
