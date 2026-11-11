@@ -8,7 +8,7 @@ public class StudySystem : ModSystem
     public static System.Collections.Generic.List<StudyQuestion> Questions => StudyQuestionBank.Questions;
     public static bool BossPermitAvailable;
 
-    public override void OnModLoad()
+    public override void Load()
     {
         StudyQuestionBank.Load();
     }
